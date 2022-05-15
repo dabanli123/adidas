@@ -1,0 +1,60 @@
+.review-box {
+  margin-top: 40px;
+  .list-title {
+    margin-bottom: 5px;
+    display: block;
+  }
+  .ranting-star {
+    display: flex;
+    column-gap: 5px;
+  }
+  .content {
+    margin-top: 10px;
+    word-break: break-word;
+  }
+  .content-more {
+    color: #767677;
+    margin: 10px 0;
+    font-size: 12px;
+    height:0;
+    overflow: hidden;
+    display: block;
+
+    &.show {
+      height: auto;
+    }
+  }
+  .exrta {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    .helpful {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      .helpful-smbox {
+        margin-right: 12px;
+      }
+      .vote-button {
+        background: none;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+    .right {
+      color: #767677;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .report-review {
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &.reported {
+        text-decoration: none;
+        color:#767677;
+      }
+    }
+  }
+}
