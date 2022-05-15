@@ -7,7 +7,11 @@ interface IProps {
   width: number,
   size?: 'small' | 'mini' | 'default'
 }
-
+/**
+ * 星星
+ * @width 覆盖宽度
+ * @size 星星大小，暂定三种
+ */
 export default (props: IProps) => {
   return (
     <div className={classnames('star-rating__item', {small: props.size === 'small', mini: props.size === 'mini'})}>

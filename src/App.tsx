@@ -9,9 +9,9 @@ import { AxiosResponse } from "axios";
 import classNames from "classnames";
 
 function App() {
-  const [total, setTotal] = useState<number>(0);
-  const [reviews, setReviews] = useState<IReview[]>([]);
-  const [page, setPage] = useState<number>(0);
+  const [total, setTotal] = useState<number>(0);  // 总计
+  const [reviews, setReviews] = useState<IReview[]>([]); // 右边的数据
+  const [page, setPage] = useState<number>(0); // 自己给分个页
   const [filtered, setFiltered] = useState<string | undefined>(undefined);
   const [expand, setExpand] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,7 +23,8 @@ function App() {
     setTotal(0);
     setReviews([]);
     setPage(0);
-    setLoading(true)
+    setLoading(true);
+    // 拉接口啦
     getReviews(sort).then((res:  AxiosResponse<{reviews: IReview[], totalResults: number}>) => {
       setLoading(false)
       if(!res || !res.data) {
@@ -34,20 +35,19 @@ function App() {
       setReviews(res.data.reviews);
     })
   }
-
+  // 左边筛选项 关闭图标不好拿，就先用X代替了
   const handleFileter = (filter: EnumFilter) => {
     setFiltered(filter);
-    // getList(filter);
   }
-
+  // 右边的sort by 下拉图标不好拿，所以就没拿了
   const handleSort = (item: string) => {
     getList(item);
   }
-
+  // 右边是否展开
   const switchExpand = () => {
     setExpand(!expand)
   }
-
+  // 每页三条
   const sliceIndex = 3 * page + 3;
 
   if(loading) {

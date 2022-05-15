@@ -2,12 +2,14 @@ import React from 'react';
 import './index.less';
 
 interface IProps {
-  title: string;
-  minText: string;
-  maxText: string;
-  progress: number;
+  title: string; // 标题
+  minText: string; // 最小值文案
+  maxText: string; // 最大值文案
+  progress: number; // 进度
 }
-
+/**
+ * 滑动条
+ */
 export default (props: IProps) => {
   return (
     <div className="progress-size">

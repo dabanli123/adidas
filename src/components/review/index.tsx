@@ -9,11 +9,13 @@ interface IProps {
 }
 
 const rantingArray  = new Array(5).fill(1);
-
+/**
+ * 右边的review
+ */
 export default (props: IProps) => {
-  const [isShow, setIsShow] = useState<boolean>(false);
-  const [isReport, setIsReport] = useState<boolean>(false);
-  const [isHelpful, setIsHelpful] = useState<EnumHelpful>(EnumHelpful.Default);
+  const [isShow, setIsShow] = useState<boolean>(false); // 是否显示小字
+  const [isReport, setIsReport] = useState<boolean>(false); // Read More的显示判断
+  const [isHelpful, setIsHelpful] = useState<EnumHelpful>(EnumHelpful.Default); // 点赞
 
 
   return (
