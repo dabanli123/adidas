@@ -57,4 +57,31 @@
       }
     }
   }
+  .tankinfo {
+    font-size: 12px;
+    color:#767677;  
+    opacity: 0;
+
+    &.show {
+     animation: tankinfo 2s;
+    }
+  }
+}
+
+@keyframes tankinfo {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

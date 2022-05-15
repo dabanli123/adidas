@@ -93,11 +93,11 @@ export default (props: IProps) => {
           </button>
           <div className="number helpful-smbox">{(isHelpful === EnumHelpful.Down ? 1 : 0) + props.item.negativeFeedbackCount}</div>
         </div>
-
         {isShow 
         ? <div className={classNames('report-review', {reported: isReport})} onClick={() => setIsReport(true)}>{isReport ? 'Review reported.' : 'Report review'}</div> 
         :<div className="right" onClick={() => setIsShow(true)}>Read More</div>}
       </div>
+      <p className={classNames('tankinfo', {show: isHelpful !== EnumHelpful.Default})}>Thank you! You have successfully submitted feedback for this review</p>
     </div>
   );
 };
