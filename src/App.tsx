@@ -7,6 +7,7 @@ import { getReviews } from "./api";
 import { EnumFilter, EnumSort, IReview } from "./interface";
 import { AxiosResponse } from "axios";
 import classNames from "classnames";
+import classnames from "classnames";
 
 function App() {
   const [total, setTotal] = useState<number>(0);  // 总计
@@ -35,11 +36,11 @@ function App() {
       setReviews(res.data.reviews);
     })
   }
-  // 左边筛选项 关闭图标不好拿，就先用X代替了
+  // 左边筛选项 
   const handleFileter = (filter: EnumFilter) => {
     setFiltered(filter);
   }
-  // 右边的sort by 下拉图标不好拿，所以就没拿了
+  // 右边的sort by 
   const handleSort = (item: string) => {
     getList(item);
   }
@@ -122,18 +123,17 @@ function App() {
         </div>
 
         <div className="review-list">
-          <div className="sort-btn" onClick={switchExpand}>
-            {!expand && <span>Sort By</span>}
-            {expand && (
-              <dl className="sort-list">
-                <dt>Sort By</dt>
-                {Object.values(EnumSort).map((item) => {
-                  console.log(item);
-                  return <dd key={item} onClick={handleSort.bind(null, item)}>{item}</dd>
-                })} 
-            
+          <div className="sort-btn">
+            {/* {!expand && <span>Sort By <img src={require('./arrow-down.png')} /></span>} */}
+              <dl className={classnames('sort-list', {show: expand})} onClick={switchExpand}>
+                <dt>Sort By <img src={require('./arrow-down.png')} alt="arrow-down" /></dt>
+                { expand && Object.values(EnumSort).map((item) => {
+                    console.log(item);
+                    return <dd key={item} onClick={handleSort.bind(null, item)}>{item}</dd>
+                  })
+                }
               </dl>
-            ) }
+          
             
           </div>
           <div className="list-group">

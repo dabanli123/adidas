@@ -107,12 +107,28 @@
           right: 0;
           top:0;
           margin: 0;
-          border: 1px solid #333;
+        
           box-sizing: border-box;
+
+          &.show {
+            border: 1px solid #333;
+
+            dt img {
+              transform: rotate(-180deg);
+            }
+          }
 
           dt {
             font-weight: 600;
             margin-bottom: 30px;
+
+            img {
+              width: 26px;
+              position: relative;
+              top:7px;
+              transform: rotate(0);
+              transition: transform .5s;
+            }
           }
 
           dd {
